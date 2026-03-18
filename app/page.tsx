@@ -32,7 +32,7 @@ export default async function Home() {
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
             <div className="flex-1 w-full pt-4 md:pt-0">
-              <h3 className="text-4xl font-bold text-white mb-2">500+</h3>
+              <h3 className="text-4xl font-bold text-white mb-2">50+</h3>
               <p className="text-gray-400 uppercase tracking-wider text-sm">Devices Sold</p>
             </div>
             <div className="flex-1 w-full pt-6 md:pt-0">

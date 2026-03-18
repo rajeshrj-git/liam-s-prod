@@ -38,7 +38,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-4 pt-6">
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
                 <Users className="text-accent mb-3" size={28} />
-                <h3 className="text-2xl font-bold text-white mb-1">5,000+</h3>
+                <h3 className="text-2xl font-bold text-white mb-1">50+</h3>
                 <p className="text-gray-400 text-sm">Happy Customers</p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
@@ -59,8 +59,8 @@ export default function AboutPage() {
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/80 to-transparent z-20">
-                <h3 className="text-2xl font-bold text-white">Rajesh Kumar</h3>
-                <p className="text-accent font-medium">Founder & CEO</p>
+                <h3 className="text-2xl font-bold text-white">Nino Issac</h3>
+                <p className="text-accent font-medium">Founder</p>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-white mb-1">Store Address</h4>
-                      <p className="text-gray-400">Tech Park Road, Sector 62<br/>Noida, UP 201309<br/>India</p>
+                      <p className="text-gray-400">Verkilambi<br/>Kanayakumari ,Tamil Nadu <br/>India</p>
                     </div>
                   </div>
                   
@@ -112,14 +112,18 @@ export default function AboutPage() {
 
             <div className="lg:col-span-2 relative h-[400px] lg:h-auto rounded-3xl overflow-hidden border border-white/10 glass-card">
                {/* Google Maps iFrame */}
-               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112061.09262729904!2d77.3012896338027!3d28.632977531737784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1716300000000!5m2!1sen!2sin" 
-                className="absolute inset-0 w-full h-full" 
-                style={{ border: 0 }} 
-                allowFullScreen={true} 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+             {/* Google Maps iFrame - Verkilambi, Tamil Nadu */}
+{/* <iframe 
+  src="https://www.google.com" 
+  className="absolute inset-0 w-full h-full" 
+  style={{ border: 0 }} 
+  allowFullScreen={true} 
+  loading="lazy" 
+  referrerPolicy="no-referrer-when-downgrade"
+></iframe> */}
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.076474956475!2d77.28992637582333!3d8.295188450042062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04560e9f7fd71f%3A0x642341dd374b0cb7!2sVerkilambi%2C%20Tamil%20Nadu%20629166!5e0!3m2!1sen!2sin!4v1773874237381!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
             </div>
           </div>
         </div>
@@ -128,3 +132,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
+
