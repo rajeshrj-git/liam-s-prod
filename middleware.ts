@@ -30,19 +30,9 @@ export async function middleware(request: NextRequest) {
     }
   )
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  if (request.nextUrl.pathname.startsWith('/admin/dashboard') && !user) {
-    return NextResponse.redirect(new URL('/admin', request.url))
-  }
-
-  // If user is logged in and visits /admin directly, redirect to dashboard
-  if (request.nextUrl.pathname === '/admin' && user) {
-    return NextResponse.redirect(new URL('/admin/dashboard', request.url))
-  }
-
+  // We have moved the authentication guard to the Client Components directly 
+  // (app/admin/dashboard/page.tsx) to completely bypass Vercel Edge configuration 
+  // edge-cases where environment variables fail to load in time.
   return supabaseResponse
 }
 

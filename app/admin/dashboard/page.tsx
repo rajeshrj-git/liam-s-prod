@@ -27,12 +27,20 @@ export default function AdminDashboard() {
   };
 
   useEffect(() => {
-    fetchProducts();
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        window.location.href = "/admin";
+      } else {
+        fetchProducts();
+      }
+    };
+    checkAuth();
   }, []);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    router.push("/admin");
+    window.location.href = "/admin";
   };
 
   const handleDelete = async (id: string) => {
