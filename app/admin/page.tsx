@@ -16,7 +16,7 @@ export default function AdminLoginPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -27,7 +27,10 @@ export default function AdminLoginPage() {
       setLoading(false);
     } else {
       toast.success("Login successful");
-      router.push("/admin/dashboard");
+      
+      // Force a hard navigation to bypass Next.js client-side router cache 
+      // which aggressively caches the unauthorized redirect back to /admin
+      window.location.href = "/admin/dashboard";
     }
   };
 
@@ -36,14 +39,14 @@ export default function AdminLoginPage() {
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 blur-[100px] rounded-full" />
       </div>
-      
+
       <div className="w-full max-w-md relative z-10 glass-card p-8 rounded-3xl border border-white/10 shadow-[0_0_50px_rgba(255,107,0,0.1)]">
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 bg-accent/20 border border-accent/50 rounded-full flex items-center justify-center text-accent shadow-[0_0_20px_rgba(255,107,0,0.3)]">
             <Lock size={30} />
           </div>
         </div>
-        
+
         <h1 className="text-3xl font-bold text-center text-white mb-2">Admin Portal</h1>
         <p className="text-center text-gray-400 mb-8">Sign in to manage your inventory</p>
 
