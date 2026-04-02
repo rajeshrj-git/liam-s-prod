@@ -54,7 +54,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
   if (waNumber.length === 10) waNumber = `91${waNumber}`; // Prepend India code if missing
 
   const prefilledMessage = encodeURIComponent(
-    `Hi Liam Products! I'm interested in the [${product.name}] priced at ${formatPrice(product.price)}.\n\nLink: https://liamproducts.com/products/${product.id}`
+    `Hi Liam Products! I'm interested in the [${product.name}] priced at ${formatPrice(product.price)}.\n\nLink: https://liamproducts.in`
   );
   
   const whatsappLink = `https://wa.me/${waNumber}?text=${prefilledMessage}`;
