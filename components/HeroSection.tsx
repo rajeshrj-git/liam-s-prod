@@ -9,8 +9,9 @@ import { motion } from "framer-motion";
 import * as THREE from "three";
 
 export default function HeroSection() {
-  const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, "");
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi Liam Products! I'm interested in looking at your premium honey.`;
+  let waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, "");
+  if (waNumber.length === 10) waNumber = `91${waNumber}`;
+  const whatsappLink = `https://wa.me/${waNumber}?text=Hi Liam Products! I'm interested in looking at your premium honey.`;
 
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-background">

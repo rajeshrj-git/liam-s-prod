@@ -23,7 +23,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const whatsappLink = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Hi Liam Products! I'm interested in looking at your honey collections.`;
+  let waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, "");
+  if (waNumber.length === 10) waNumber = `91${waNumber}`;
+
+  const whatsappLink = `https://wa.me/${waNumber}?text=Hi Liam Products! I'm interested in looking at your honey collections.`;
 
   return (
     <header

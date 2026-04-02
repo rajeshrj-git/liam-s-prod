@@ -50,12 +50,14 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
     ? Math.round(((product.original_price! - product.price) / product.original_price!) * 100)
     : 0;
 
-  const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, "");
+  let waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/\D/g, "");
+  if (waNumber.length === 10) waNumber = `91${waNumber}`; // Prepend India code if missing
+
   const prefilledMessage = encodeURIComponent(
     `Hi Liam Products! I'm interested in the [${product.name}] priced at ${formatPrice(product.price)}.\n\nLink: https://liamproducts.com/products/${product.id}`
   );
   
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${prefilledMessage}`;
+  const whatsappLink = `https://wa.me/${waNumber}?text=${prefilledMessage}`;
   const phoneLink = `tel:${(process.env.NEXT_PUBLIC_PHONE_NUMBER || "").replace(/\s/g, "")}`;
 
   const renderSpec = (label: string, value: string | null) => {
